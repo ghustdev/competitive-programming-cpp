@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int main() 
+int main()
 {
     // Estrutura base para eficiancia:
     ios::sync_with_stdio(0);
