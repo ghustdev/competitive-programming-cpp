@@ -7,11 +7,11 @@ int main () {
 
     cin >> a >> b >> c >> d;
 
-    for (int i = 1; i < 1000; i++) {
-        if (a < c - d*i < b) {
+    for (int i = 1; i < 100; i++) {
+        if ((c - d*i) <= b && (c - d*i) >= a) {
             valid = 'S'; 
-            break;}
-        else valid = 'N';
+            break;
+        } else valid = 'N';
     }
 
     cout << valid;
