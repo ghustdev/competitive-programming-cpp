@@ -1,4 +1,0 @@
-paradigmo do c++
-    - PARADIGMA: multi-paradigma (procedural, oo, genérica, funcional)
-    - TIPAÇÃO: fortemente tipada (definida na compilação) e estática (não mudam)
-    - GERENCIAMENTO DE MEMÓRIA: não é autompática como no Java ou Python
