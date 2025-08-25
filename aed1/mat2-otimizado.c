@@ -41,6 +41,25 @@ int main() {
             mat_spr key = {idx, 0};
             mat_spr *ptr = bsearch(&key, V, indV, sizeof(mat_spr), cmp);
 
+            /* void *bsearch(
+            const void *key,   // O que queremos procurar
+            const void *base,  // O vetor onde procurar
+            size_t nmemb,      // Quantos elementos tem o vetor
+            size_t size,       // Tamanho de cada elemento
+            int (*compar)(const void *, const void *) // Função de comparação
+            );
+            No nosso caso:
+
+            &key → ponteiro para o que queremos procurar (mat_spr {idx, 0}).
+
+            V → início do vetor onde vamos procurar.
+
+            indV → quantidade de elementos atualmente em V.
+
+            sizeof(mat_spr) → tamanho de cada elemento do vetor (precisa porque bsearch trabalha com void*).
+
+            cmp → função de comparação que diz como comparar dois mat_spr (no caso, compara pelo campo .ind). */
+
             if (ptr) {
                 ptr->val = x; // atualiza
             } else {
