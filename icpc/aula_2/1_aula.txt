@@ -1,6 +1,6 @@
                         Aula 2
 
  - Calculo de tempo de complexidade -> tempo de execução
- - 1 segundo = 4*10^8 execução de comparação / operações -> o camlculo de complexidade (estudar complexidade e funções)
+ - 1 segundo = 4*10^8 execução de comparação / operações -> o calculo de complexidade
  - Constante multiplicativa importa no calculo de complexidade -> Big O
  - Busca binária -> log n + 1

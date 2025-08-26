@@ -8,39 +8,26 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    ll q, i, j, count1 = 0, count = 0;
+    int q, i, count = 0;
     cin >> q;
-    vector<ll> vet(q), outputs(q);
+    int MAX = 1e6 + 1;
+    vector<int> freq(MAX, 0);
 
     for (i = 0; i < q; i++)
     {
         int type;
         cin >> type;
         if (type == 1) {
-            ll x; cin >> x;
-            int yep = 0;
-            for (j = 0; j < count1; j++) {
-                if (vet[j] == x) {
-                    yep++;
-                }
-            }
-            if (!yep) {
-                vet[count1] = x;
-                count1++;
-            }
+            int x; cin >> x;
+            if (freq[x] == 0) 
+                count++;
+            freq[x]++;
         } else if (type == 2) {
-            ll x; cin >> x;
-            for (j = 0; j < count1; j++) {
-                if (vet[j] == x) {
-                    vet[j] = 0;
-                }
-            }
+            int x; cin >> x;
+            freq[x]--;
+            if (freq[x] == 0) 
+                count--;
         } else {
-            ll count = 0;
-            for (j = 0; j < count1; j++) {
-                if (vet[j] > 0)
-                    count++;
-            }
             cout << count << "\n";
         }
     }
