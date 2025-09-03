@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -Wall -Wextra -g
 
 TARGET = main
-SRC = aula-bits.cpp
+SRC = ex2-sensores.cpp
 OBJ = $(SRC:.c=.o)
 
 all: $(TARGET)

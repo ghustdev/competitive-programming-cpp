@@ -5,12 +5,14 @@ typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
 
+void print_binary(int x);
+
 int main() 
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    
+    print_binary(2);
 
     return 0;
 }

@@ -10,11 +10,11 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    ll a, b, middle; cin >> a >> b;
+    ll d; cin >> d;
 
-    a > b ? middle = b : middle = a;
-
-    cout << (middle*3 - a - b);
+    if ((d - 3) % 8 == 3) cout << 1;
+    else if ((d - 3) % 8 == 4) cout << 2;
+    else cout << 3;
 
     return 0;
 }
