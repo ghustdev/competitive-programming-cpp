@@ -3,7 +3,7 @@ using namespace std;
 
 typedef long long ll;
 
-ll pot_rec(ll x, ll bac_num) {
+/* ll pot_rec(ll x, ll bac_num) {
     ll pot = 1;
     
     for (int i = 0; i <= 32; i++) {
@@ -19,7 +19,7 @@ ll pot_rec(ll x, ll bac_num) {
         }
     }
     return bac_num;
-}
+} */
 
 int main() 
 {
