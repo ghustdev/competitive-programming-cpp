@@ -10,30 +10,32 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    ll n, sum = 0; cin >> n;
+    ll n, S = 0; cin >> n;
     vi vec(n);
     vi vec_copy(n);
-    vppi pair(n);
-    vppi pair_r(n);
+
+    unordered_map <ll, ll> freq;
+    unordered_map <int, ll> result;
+
     for (ll i=0; i<n; i++) {
         cin >> vec[i];
         vec_copy[i] = vec[i];
-        sum += vec[i];
-        pair[vec[i]].second++;
+        S += vec[i];
+        freq[vec[i]]++;
     }
 
     sort(vec.begin(), vec.end());
 
     ll i=0;
     while (i<n) {
-    /* for (ll i=0; i<n; i++) { */
-        pair_r[vec[i]].second = sum - pair[vec[i]].second*vec[i];
-        sum -= pair[vec[i]].second*vec[i];
-        i++;
+        ll v = vec[i];
+        result[v] = S - 1LL * freq[v] * v;
+        S -= 1LL * freq[v] * v;
+        i += freq[v];
     }
 
     for (int i=0; i<n; i++) {
-        cout << pair_r[vec_copy[i]].second << " ";
+        cout << result[vec_copy[i]] << " ";
     }
 
     return 0;
