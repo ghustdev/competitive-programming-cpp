@@ -13,12 +13,16 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int n; cin >> n;
-    int orig = 1, aux = 2, dest = 3;
+    int TESTS = 3;
 
-    cout << ((1<<n) - 1) << "\n";
+    while (TESTS-- > 0) {
+        int n; cin >> n;
+        int orig = 1, aux = 2, dest = 3;
 
-    hanoi(n, orig, aux, dest);
+        cout << ((1<<n) - 1) << "\n";
+
+        hanoi(n, orig, aux, dest);
+    }
 
     return 0;
 }
