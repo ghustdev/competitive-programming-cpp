@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -Wextra -g
 
-FILE_NAME = a
+FILE_NAME = b
 TARGET = $(FILE_NAME).exe
 SRC = $(FILE_NAME).cpp
 OBJ = $(SRC:.c=.o)
