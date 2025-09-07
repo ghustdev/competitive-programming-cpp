@@ -1,8 +1,9 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-TARGET = main
-SRC = mat3.c
+FILE_NAME = r2
+TARGET = $(FILE_NAME).exe
+SRC = $(FILE_NAME).c
 OBJ = $(SRC:.c=.o)
 
 # Arquivos de entrada e saída
