@@ -1,22 +1,18 @@
 CC = g++
 CFLAGS = -Wall -Wextra -g
 
-FILE_NAME = d
+FILE_NAME = g
 TARGET = $(FILE_NAME).exe
 SRC = $(FILE_NAME).cpp
-OBJ = $(SRC:.c=.o)
 
 # Arquivos de entrada e saída
-INPUT = input.txt
-OUTPUT = output.txt
+INPUT = in.txt
+OUTPUT = out.txt
 
 all: save
 
-$(TARGET): $(OBJ)
+$(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $@ $^
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
 
 run: $(TARGET)
 	./$(TARGET)

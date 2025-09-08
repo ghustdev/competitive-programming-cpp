@@ -13,16 +13,12 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int TESTS = 3;
+    int n; cin >> n;
+    int orig = 1, aux = 2, dest = 3;
 
-    while (TESTS-- > 0) {
-        int n; cin >> n;
-        int orig = 1, aux = 2, dest = 3;
+    cout << ((1<<n) - 1) << "\n";
 
-        cout << ((1<<n) - 1) << "\n";
-
-        hanoi(n, orig, aux, dest);
-    }
+    hanoi(n, orig, aux, dest);
 
     return 0;
 }
@@ -32,10 +28,12 @@ void hanoi(int n, int orig, int aux, int dest) {
         cout << orig << " " << dest << "\n";
         return;
     }
-    // Movo os n-1 da orig -> aux em 2^(n-1)-1 movimentos
+    //          1      2     3 -> inicio
+    //          1      3     2 -> n=2
+    //          1      2     3 -> n=1
     hanoi(n-1, orig, dest, aux);
-    // Movo o disco de orig -> dest
+    //          1      2     3 -> volta para o caso base (n=3)
     cout << orig << " " << dest << "\n";
-    // Movo os n-1 do aux -> dest em 2^(n-1)-1 movimentos
+    //          1      2     3 -> volta para o caso base (n=3)
     hanoi(n-1, aux, orig, dest);
 }

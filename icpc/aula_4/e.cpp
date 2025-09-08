@@ -28,10 +28,12 @@ void hanoi(int n, int orig, int aux, int dest) {
         cout << orig << " " << dest << "\n";
         return;
     }
-    // Movo os n-1 da orig -> aux em 2^(n-1)-1 movimentos
+    //          1      2     3 -> inicio
+    //          1      3     2 -> n=2
+    //          1      2     3 -> n=1
     hanoi(n-1, orig, dest, aux);
-    // Movo o disco de orig -> dest
+    //          1      2     3 -> volta para o caso base (n=3)
     cout << orig << " " << dest << "\n";
-    // Movo os n-1 do aux -> dest em 2^(n-1)-1 movimentos
+    //          1      2     3 -> volta para o caso base (n=3)
     hanoi(n-1, aux, orig, dest);
 }
