@@ -6,7 +6,7 @@ typedef vector<int> v_i;
 typedef vector<pair<int, int>> v_pair;
 typedef unordered_map <ll, ll> u_map;
 
-void back_queen(int n);
+void back_queen(int y);
 void setup();
 
 v_i cols; v_i dig1; v_i dig2;
