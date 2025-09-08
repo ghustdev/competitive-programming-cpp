@@ -5,7 +5,6 @@ FILE_NAME = g
 TARGET = $(FILE_NAME).exe
 SRC = $(FILE_NAME).cpp
 
-# Arquivos de entrada e saída
 INPUT = in.txt
 OUTPUT = out.txt
 

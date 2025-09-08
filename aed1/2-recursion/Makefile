@@ -1,22 +1,17 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-FILE_NAME = r2
+FILE_NAME = r1
 TARGET = $(FILE_NAME).exe
 SRC = $(FILE_NAME).c
-OBJ = $(SRC:.c=.o)
 
-# Arquivos de entrada e saída
-INPUT = input.txt
-OUTPUT = output.txt
+INPUT = in.txt
+OUTPUT = out.txt
 
 all: save
 
-$(TARGET): $(OBJ)
+$(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $@ $^
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
 
 run: $(TARGET)
 	./$(TARGET)
@@ -25,4 +20,4 @@ save: $(TARGET)
 	./$(TARGET) < $(INPUT) > $(OUTPUT)
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(TARGET)
