@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -Wextra -g
 
-FILE_NAME = parentheses
+FILE_NAME = marge-linked-list
 TARGET = $(FILE_NAME).exe
 SRC = $(FILE_NAME).cpp
 
