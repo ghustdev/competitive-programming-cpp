@@ -6,7 +6,7 @@ typedef vector<int> v_i;
 typedef vector<pair<int, int>> v_pair;
 typedef unordered_map <ll, ll> u_map;
 
-int v[] = {1, 5, 3, 7};
+int v[] = {1, 2, 3};
 vector<int> vv;
 
 void sub(int i);
@@ -22,7 +22,7 @@ int main()
 }
 
 void sub(int i) {
-    if (i == 4) {
+    if (i == 3) {
         cout << "{ ";
         for (int x: vv) {
             cout << x << " ";

@@ -1,1 +1,44 @@
-// Given is a number sequence A A of length N N. Let us divide this sequence into one or more non-empty contiguous intervals. Then, for each of these intervals, let us compute the bitwise O R OR of the numbers in it. Find the minimum possible value of the bitwise X O R XOR of the values obtained in this way. What is bitwise O R OR? The bitwise O R OR of integers A A and B B, A O R B A OR B, is defined as follows: When A O R B A OR B is written in base two, the digit in the 2 k 2 k 's place ( k ≥ 0 k≥0) is 1 1 if at least one of A A and B B is 1 1, and 0 0 otherwise. For example, we have 3 O R 5 = 7 3 OR 5=7 (in base two: 011 O R 101 = 111 011 OR 101=111). Generally, the bitwise O R OR of k k integers p 1 , p 2 , p 3 , … , p k p 1​,p 2​,p 3​,…,p k​is defined as ( … ( ( p 1 O R p 2 ) O R p 3 ) O R … O R p k ) (…((p 1​OR p 2​) OR p 3​) OR … OR p k​). We can prove that this value does not depend on the order of p 1 , p 2 , p 3 , … p k p 1​,p 2​,p 3​,…p k​. What is bitwise X O R XOR? The bitwise X O R XOR of integers A A and B B, A X O R B A XOR B, is defined as follows: When A X O R B A XOR B is written in base two, the digit in the 2 k 2 k 's place ( k ≥ 0 k≥0) is 1 1 if exactly one of A A and B B is 1 1, and 0 0 otherwise. For example, we have 3 X O R 5 = 6 3 XOR 5=6 (in base two: 011 X O R 101 = 110 011 XOR 101=110). Generally, the bitwise X O R XOR of k k integers p 1 , p 2 , p 3 , … , p k p 1​,p 2​,p 3​,…,p k​is defined as ( … ( ( p 1 X O R p 2 ) X O R p 3 ) X O R … X O R p k ) (…((p 1​XOR p 2​) XOR p 3​) XOR … XOR p k​). We can prove that this value does not depend on the order of p 1 , p 2 , p 3 , … p k p 1​,p 2​,p 3​,…p k​.
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef vector<int> v_i;
+typedef vector<pair<int, int>> v_pair;
+typedef unordered_map <ll, ll> u_map;
+
+vector<ll> v;
+int n;
+ll minXOR = 2e30;
+
+void subXOR(int i, ll cOR, ll tXOR) ;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    cin >> n;
+    for (int i=0; i<n; i++) {
+        ll in;
+        cin >> in;
+        v.push_back(in);
+    }
+
+    subXOR(0, v[0], 0ll);
+
+    cout << minXOR;
+
+    return 0;
+}
+
+void subXOR(int i, ll cOR, ll tXOR) {
+    if (i == n) {
+        tXOR ^= cOR;
+        minXOR = min(minXOR, tXOR);
+        return;
+    } 
+
+    subXOR(i+1, cOR | v[i], tXOR);
+    if (i > 0)
+        subXOR(i+1, v[i], tXOR ^ cOR);
+}
