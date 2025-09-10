@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -Wextra -g
 
-FILE_NAME = anagrama
+FILE_NAME = parentheses
 TARGET = $(FILE_NAME).exe
 SRC = $(FILE_NAME).cpp
 
