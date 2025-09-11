@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -Wextra -g
 
-FILE_NAME = exceptSelf
+FILE_NAME = gorupAnagrams2
 TARGET = $(FILE_NAME).exe
 SRC = $(FILE_NAME).cpp
 
