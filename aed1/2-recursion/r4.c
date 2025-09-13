@@ -15,7 +15,7 @@ int main()
 
     v = (int *) calloc(n, sizeof(int));
 
-    sub_particoes(n, 0);
+    sub_particoes(0, 0);
 
     printf("%d", count);
 
@@ -24,30 +24,30 @@ int main()
     return 0;
 }
 
-void add_num(int num) {
-    v[tam_logic] = num;
-    tam_logic++;
-}
-
-void remove_num(int num) {
-    tam_logic--;
-}
-
 void sub_particoes(int i, int sum) {
-    for (int i=0; i<tam_logic; i++) {
-        printf("valores: %d", v[i]);
+    printf("valores: \n");      
+    for (int i=0; i<n; i++) {
+        printf("%d ", v[i]);
         sum += v[i];
     }
     printf("\n");
     if (sum == n) {
-        printf("soma: %d\n", sum);
         count++;
-    } else {
-        for (int value=1; value<=n; value++) {
-            sub_particoes(i, sum);
-            // sum = 0;
-            sub_particoes(i - 1, sum);
-        }
+        return;
+    }
+    if (sum > n) return;
+    // 4 -> 5 casos: 
+    // 4
+    // 3 + 1
+    // 2 + 2
+    // 2 + 1 + 1
+    // 1 + 1 + 1 + 1
+    for (int value=n; value>0; value--) {
+        v[i] = value;
+        sub_particoes(i, sum);
+        v[i] = value - 1;
+        v[i+1] = value;
+        sub_particoes(i + 1, sum);
     }
 }
 

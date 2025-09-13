@@ -1,9 +1,9 @@
-CC = g++
+CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-FILE_NAME = b2
+FILE_NAME = b1
 TARGET = $(FILE_NAME).exe
-SRC = $(FILE_NAME).cpp
+SRC = $(FILE_NAME).c
 
 INPUT = in.txt
 OUTPUT = out.txt
