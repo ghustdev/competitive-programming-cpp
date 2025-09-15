@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-FILE_NAME = teste
+FILE_NAME = r4
 TARGET = $(FILE_NAME).exe
 SRC = $(FILE_NAME).c
 

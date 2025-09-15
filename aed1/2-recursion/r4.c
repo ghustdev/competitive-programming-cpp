@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void sub_particoes(int i, int sum);
 
 int *v;
+int tam_logic = 0;
 int n;
 int count = 0;
-int tam_logic = 0;
-int sum = 0;
+
+void sub_particoes(int n, int max_control);
 
 int main() 
 { 
     scanf("%d", &n);
 
-    v = (int *) calloc(n, sizeof(int));
+    v = (int *) malloc(n * sizeof(int));
 
-    sub_particoes(0, 0);
+    sub_particoes(n, n);
 
     printf("%d", count);
 
@@ -24,30 +24,41 @@ int main()
     return 0;
 }
 
-void sub_particoes(int i, int sum) {
-    printf("valores: \n");      
-    for (int i=0; i<n; i++) {
-        printf("%d ", v[i]);
-        sum += v[i];
-    }
-    printf("\n");
-    if (sum == n) {
+void push_back(int value) {
+    v[tam_logic] = value;
+    tam_logic++;
+}
+
+void pop_back() {
+    tam_logic--;
+}
+
+int min(int a, int b) {
+    if (a < b)
+        return a;
+    else
+        return b;
+}
+
+void sub_particoes(int n, int max_control) {
+    // printf("\n");
+    // for (int j=0; j<tam_logic; j++) {
+    //     printf("%d ", v[j]);
+    // }
+    if (n == 0) {
         count++;
         return;
     }
-    if (sum > n) return;
-    // 4 -> 5 casos: 
-    // 4
+    // n = 4 -> 5 casos: 
+    // 4 = 4
     // 3 + 1
-    // 2 + 2
-    // 2 + 1 + 1
-    // 1 + 1 + 1 + 1
-    for (int value=n; value>0; value--) {
-        v[i] = value;
-        sub_particoes(i, sum);
-        v[i] = value - 1;
-        v[i+1] = value;
-        sub_particoes(i + 1, sum);
+    // 2 + 2 = 4
+    // 2 + 1 + 1 = 4
+    // 1 + 1 + 1 + 1 = 4
+    for (int i=min(n, max_control); i>=1; i--) {
+        push_back(i);
+        sub_particoes(n-i, i);
+        pop_back();
     }
 }
 
