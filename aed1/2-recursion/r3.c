@@ -1,52 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void sub_particoes(int i);
-
-int *v;
-int *v_permutation;
 int n;
-int tam = 0;
+int valid = 0;
+
+void caminho(int labirinto[][n], int col, int row, int linha, int coluna);
 
 int main() 
-{ 
+{
     scanf("%d", &n);
 
-    v = (int *) malloc(n * sizeof(int));
-    v_permutation = (int *) malloc(n * sizeof(int));
+    int labirinto[n][n];
 
-    for (int i=0; i<n; i++) { 
-        v[i] = i+1;
+    for (int i=0; i<n; i++) {
+        for (int j=0; j<n; j++) 
+            sacnf("%d", labirinto[i][j]);
     }
 
-    sub_particoes(0);
+    int col[n];
+    int row[n];
 
-    free(v);
-    free(v_permutation);
+    caminho(labirinto, col, row, 0, 0);
 
     return 0;
 }
 
-void push_back_permutation(int x) {
-    v_permutation[tam] = x;
-    tam++;
+void caminho(int labirinto[][n], int col, int row, int linha, int coluna) {
+    if (linha == n && coluna == n) 
+        return valid; 
+    
 }
-
-void pop_back_permutation() {
-    tam--;
-}
-
-void sub_particoes(int i) {
-    if (i == n) {
-        for (int j=0; j<i; j++)
-            printf("%d ", v_permutation[j]);
-        printf("\n");
-        return;
-    } 
-    sub_particoes(i + 1);
-    push_back_permutation(v[i]);
-    sub_particoes(i + 1);
-    pop_back_permutation();
-}
-
-//leroyzin was here :)

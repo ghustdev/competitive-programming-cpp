@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-FILE_NAME = b1
+FILE_NAME = b1-recursion
 TARGET = $(FILE_NAME).exe
 SRC = $(FILE_NAME).c
 
